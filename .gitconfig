@@ -1,0 +1,30 @@
+[push]
+        default = current
+        autoSetupRemote = true
+
+[alias]
+        ad = add -A
+        pl = pull --no-rebase
+        plr = pull --rebase
+        plf = pull --ff-only
+        co = checkout
+        cob = co -b
+        com = co main
+        comr = co master
+        cost = co staging
+        mm = merge main
+        mmr = merge master
+        f = "!git fetch --all --tags --progress --prune; git status"
+        st = f
+        b = !git for-each-ref --sort=\"-authordate\" --format=\"%(authordate)%09%(objectname:short)%09%(refname)\" refs/heads | sed -e \"s-refs/heads/--\"
+        br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+        undounstaged = "git config --global --get-regexp alias  reset --hard && git clean -dfx "
+        undo = reset --soft HEAD~1
+        fdr = fetch --dry-run --progress
+        type = cat-file -t
+        dump = cat-file -p
+        contrib = shortlog -e --summary --numbered
+        ll = log --oneline
+
+[rebase]
+        autosquash = true
